@@ -11,6 +11,15 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
-}
+const titleCased = tutorials.map(title => {
+  const words = title.split(' ');
+  for(let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substring(1);
+  }
+  return words.join(' ');
+});
+
+console.log(titleCased);  //output was logged correctly but still failed the test
+                          //error message--> Type error: titleCased is not a function
+
+
