@@ -11,15 +11,25 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = tutorials.map(title => {
-  const words = title.split(' ');
-  for(let i = 0; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].substring(1);
-  }
-  return words.join(' ');
-});
+// const titleCased = (input) => {
+//   return tutorials.map(title => {
+//     const words = title.split(' ');
+//     const upperCasedWords = 
+//       words.map(word => word.charAt(0).toUpperCase() + word.slice(1) );
 
-console.log(titleCased);  //output was logged correctly but still failed the test
-                          //error message--> Type error: titleCased is not a function
+//     const result = upperCasedWords.join(' ');
+//     return result;
+//   });
+// }
 
+const titleCased = function (input) {
+  return tutorials.map(function (title) {
+    const words = title.split(' ');
+    const upperCasedWords = words.map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    const result = upperCasedWords.join(' ');
+    return result;
+  })
+}
 
